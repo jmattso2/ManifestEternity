@@ -1,0 +1,94 @@
+[gd_resource type="Resource" script_class="Battlefield" load_steps=19 format=3 uid="uid://du6s15m4sfw0o"]
+
+[ext_resource type="Script" path="res://Resource Templates/Battlefields/battlefield.gd" id="1_0xy6d"]
+[ext_resource type="Script" path="res://Resource Templates/Battlefields/hex_position.gd" id="1_vf8fv"]
+
+[sub_resource type="Resource" id="Resource_xidsm"]
+script = ExtResource("1_vf8fv")
+row = 0
+col = 2
+
+[sub_resource type="Resource" id="Resource_d10r2"]
+script = ExtResource("1_vf8fv")
+row = 0
+col = 0
+
+[sub_resource type="Resource" id="Resource_hl6il"]
+script = ExtResource("1_vf8fv")
+row = 0
+col = 1
+
+[sub_resource type="Resource" id="Resource_ekql3"]
+script = ExtResource("1_vf8fv")
+row = 0
+col = 2
+
+[sub_resource type="Resource" id="Resource_yv366"]
+script = ExtResource("1_vf8fv")
+row = 0
+col = 3
+
+[sub_resource type="Resource" id="Resource_pu5bn"]
+script = ExtResource("1_vf8fv")
+row = 0
+col = 4
+
+[sub_resource type="Resource" id="Resource_60pk2"]
+script = ExtResource("1_vf8fv")
+row = 4
+col = 0
+
+[sub_resource type="Resource" id="Resource_4bfsd"]
+script = ExtResource("1_vf8fv")
+row = 3
+col = 1
+
+[sub_resource type="Resource" id="Resource_eewma"]
+script = ExtResource("1_vf8fv")
+row = 4
+col = 3
+
+[sub_resource type="Resource" id="Resource_lj8ug"]
+script = ExtResource("1_vf8fv")
+row = 3
+col = 4
+
+[sub_resource type="Resource" id="Resource_cdvs8"]
+script = ExtResource("1_vf8fv")
+row = 7
+col = 2
+
+[sub_resource type="Resource" id="Resource_8oeee"]
+script = ExtResource("1_vf8fv")
+row = 7
+col = 0
+
+[sub_resource type="Resource" id="Resource_tkgko"]
+script = ExtResource("1_vf8fv")
+row = 7
+col = 1
+
+[sub_resource type="Resource" id="Resource_elg66"]
+script = ExtResource("1_vf8fv")
+row = 7
+col = 2
+
+[sub_resource type="Resource" id="Resource_csqc0"]
+script = ExtResource("1_vf8fv")
+row = 7
+col = 3
+
+[sub_resource type="Resource" id="Resource_0r2yk"]
+script = ExtResource("1_vf8fv")
+row = 7
+col = 4
+
+[resource]
+script = ExtResource("1_0xy6d")
+rows = 8
+columns = 5
+player_mothership_position = SubResource("Resource_cdvs8")
+player_spawn_positions = Array[ExtResource("1_vf8fv")]([SubResource("Resource_8oeee"), SubResource("Resource_tkgko"), SubResource("Resource_elg66"), SubResource("Resource_csqc0"), SubResource("Resource_0r2yk")])
+enemy_mothership_position = SubResource("Resource_xidsm")
+enemy_spawn_positions = Array[ExtResource("1_vf8fv")]([SubResource("Resource_d10r2"), SubResource("Resource_hl6il"), SubResource("Resource_ekql3"), SubResource("Resource_yv366"), SubResource("Resource_pu5bn")])
+planet_positions = Array[ExtResource("1_vf8fv")]([SubResource("Resource_60pk2"), SubResource("Resource_4bfsd"), SubResource("Resource_eewma"), SubResource("Resource_lj8ug")])

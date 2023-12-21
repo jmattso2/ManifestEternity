@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Card" load_steps=3 format=3 uid="uid://7wloobb801s6"]
+
+[ext_resource type="Texture2D" uid="uid://dspfs4qwgtkka" path="res://Assets/Cards/Attack/Shoot.png" id="1_ua6h2"]
+[ext_resource type="Script" path="res://Resource Templates/Cards/card.gd" id="2_dmqaw"]
+
+[resource]
+script = ExtResource("2_dmqaw")
+id = "shoot_1"
+type = 1
+target = 0
+cost = 1
+quantity = 1
+image = ExtResource("1_ua6h2")

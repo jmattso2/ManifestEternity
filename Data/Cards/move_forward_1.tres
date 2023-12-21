@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="DirectedCard" load_steps=3 format=3 uid="uid://bp28p22kay5vj"]
+
+[ext_resource type="Texture2D" uid="uid://bhtl37vbkvggc" path="res://Assets/Cards/Movement/Forward.png" id="1_pib8i"]
+[ext_resource type="Script" path="res://Resource Templates/Cards/directed_card.gd" id="2_af4em"]
+
+[resource]
+script = ExtResource("2_af4em")
+direction_1 = 1
+direction_2 = 6
+id = "move_forward_1"
+type = 0
+target = 0
+cost = 1
+quantity = 1
+image = ExtResource("1_pib8i")

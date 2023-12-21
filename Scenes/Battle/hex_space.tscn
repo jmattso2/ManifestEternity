@@ -1,0 +1,54 @@
+[gd_scene load_steps=4 format=3 uid="uid://bfuaqfdtqk6b7"]
+
+[ext_resource type="Script" path="res://Scenes/Battle/hex_space.gd" id="1_n8x45"]
+[ext_resource type="Script" path="res://Resource Templates/Battlefields/hex_position.gd" id="2_buc24"]
+
+[sub_resource type="Resource" id="Resource_q4dxi"]
+script = ExtResource("2_buc24")
+row = 0
+col = 0
+
+[node name="Hex Space" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 128.0
+offset_bottom = 112.0
+script = ExtResource("1_n8x45")
+hex_position = SubResource("Resource_q4dxi")
+
+[node name="Line2D" type="Line2D" parent="."]
+points = PackedVector2Array(96, 0, 32, 0)
+width = 2.0
+
+[node name="Line2D2" type="Line2D" parent="."]
+points = PackedVector2Array(0, 56, 32, 0)
+width = 2.0
+
+[node name="Line2D3" type="Line2D" parent="."]
+points = PackedVector2Array(128, 56, 96, 0)
+width = 2.0
+
+[node name="Line2D4" type="Line2D" parent="."]
+points = PackedVector2Array(128, 56, 96, 112)
+width = 2.0
+
+[node name="Line2D5" type="Line2D" parent="."]
+points = PackedVector2Array(32, 112, 96, 112)
+width = 2.0
+
+[node name="Line2D6" type="Line2D" parent="."]
+points = PackedVector2Array(32, 112, 0, 56)
+width = 2.0
+
+[node name="Hexagon" type="Polygon2D" parent="."]
+position = Vector2(32, 0)
+color = Color(0, 0, 0.407843, 1)
+polygon = PackedVector2Array(0, 0, 64, 0, 96, 56, 64, 112, 0, 112, -32, 56)
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 4
+monitorable = false
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+polygon = PackedVector2Array(32, 0, 96, 0, 128, 56, 96, 112, 32, 112, 0, 56)

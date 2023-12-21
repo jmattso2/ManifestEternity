@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Card" load_steps=3 format=3 uid="uid://t3ky8k36du1d"]
+
+[ext_resource type="Texture2D" uid="uid://ueqjkfcnwug1" path="res://Assets/Cards/Utility/Harvest.png" id="1_4e8bg"]
+[ext_resource type="Script" path="res://Resource Templates/Cards/card.gd" id="2_dhimb"]
+
+[resource]
+script = ExtResource("2_dhimb")
+id = "harvest"
+type = 2
+target = 5
+cost = 0
+quantity = 0
+image = ExtResource("1_4e8bg")

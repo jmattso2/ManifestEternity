@@ -1,0 +1,128 @@
+[gd_scene load_steps=12 format=3 uid="uid://dgdkrvir6o0rf"]
+
+[ext_resource type="Theme" uid="uid://ba6u5lyt5j38x" path="res://main_theme.tres" id="1_uul0n"]
+[ext_resource type="Script" path="res://Scenes/Card UI/card_ui.gd" id="2_46fsc"]
+[ext_resource type="Script" path="res://Scenes/Card UI/card_state_machine.gd" id="3_1a3hi"]
+[ext_resource type="Texture2D" uid="uid://c7aq4edhdudb0" path="res://Assets/Cards/Attack/Bomb.png" id="3_vrcle"]
+[ext_resource type="Script" path="res://Scenes/Card UI/Card States/card_base_state.gd" id="4_uladq"]
+[ext_resource type="Script" path="res://Scenes/Card UI/Card States/card_hovered_state.gd" id="5_4ipwm"]
+[ext_resource type="Script" path="res://Scenes/Card UI/Card States/card_clicked_state.gd" id="5_godc4"]
+[ext_resource type="Script" path="res://Scenes/Card UI/Card States/card_dragging_state.gd" id="6_e7gmd"]
+[ext_resource type="Script" path="res://Scenes/Card UI/Card States/card_released_state.gd" id="7_wh11i"]
+[ext_resource type="Theme" uid="uid://b8p2r57u42qul" path="res://small_theme.tres" id="10_h0gsq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hujgp"]
+size = Vector2(150, 200)
+
+[node name="CardUI" type="Control"]
+custom_minimum_size = Vector2(150, 200)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 150.0
+offset_bottom = 200.0
+theme = ExtResource("1_uul0n")
+script = ExtResource("2_46fsc")
+
+[node name="CardImage" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("3_vrcle")
+expand_mode = 1
+
+[node name="State" type="Label" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -75.0
+offset_top = -34.5
+offset_right = 75.0
+offset_bottom = 34.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "state"
+
+[node name="DropDetector" type="Area2D" parent="."]
+collision_mask = 2
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DropDetector"]
+position = Vector2(75, 100)
+shape = SubResource("RectangleShape2D_hujgp")
+
+[node name="CardStateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("3_1a3hi")
+initial_state = NodePath("CardBaseState")
+
+[node name="CardBaseState" type="Node" parent="CardStateMachine"]
+script = ExtResource("4_uladq")
+
+[node name="CardHoveredState" type="Node" parent="CardStateMachine"]
+script = ExtResource("5_4ipwm")
+state = 1
+
+[node name="CardClickedState" type="Node" parent="CardStateMachine"]
+script = ExtResource("5_godc4")
+state = 2
+
+[node name="CardDraggingState" type="Node" parent="CardStateMachine"]
+script = ExtResource("6_e7gmd")
+state = 3
+
+[node name="CardReleasedState" type="Node" parent="CardStateMachine"]
+script = ExtResource("7_wh11i")
+state = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 47)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(15, 0)
+layout_mode = 2
+
+[node name="CostLabel" type="Label" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("10_h0gsq")
+text = "1"
+
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(15, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="QuantityLabel" type="Label" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("10_h0gsq")
+text = "2"
+
+[node name="MarginContainer3" type="MarginContainer" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(15, 0)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="area_entered" from="DropDetector" to="." method="_on_drop_detector_area_entered"]
+[connection signal="area_exited" from="DropDetector" to="." method="_on_drop_detector_area_exited"]

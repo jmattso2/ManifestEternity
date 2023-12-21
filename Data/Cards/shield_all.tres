@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Card" load_steps=3 format=3 uid="uid://ddikc40qr6k04"]
+
+[ext_resource type="Texture2D" uid="uid://0nxvyw4ja7io" path="res://Assets/Cards/Utility/Shield.png" id="1_ka1ka"]
+[ext_resource type="Script" path="res://Resource Templates/Cards/card.gd" id="2_lx8o5"]
+
+[resource]
+script = ExtResource("2_lx8o5")
+id = "shield_all"
+type = 2
+target = 0
+cost = 3
+quantity = 0
+image = ExtResource("1_ka1ka")

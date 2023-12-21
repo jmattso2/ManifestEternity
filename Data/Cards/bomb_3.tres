@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Card" load_steps=3 format=3 uid="uid://drfpj27pcdqww"]
+
+[ext_resource type="Texture2D" uid="uid://c7aq4edhdudb0" path="res://Assets/Cards/Attack/Bomb.png" id="1_ovxox"]
+[ext_resource type="Script" path="res://Resource Templates/Cards/card.gd" id="2_vtlcb"]
+
+[resource]
+script = ExtResource("2_vtlcb")
+id = "bomb_3"
+type = 1
+target = 0
+cost = 2
+quantity = 3
+image = ExtResource("1_ovxox")

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Card" load_steps=3 format=3 uid="uid://ngobyikn0o3x"]
+
+[ext_resource type="Script" path="res://Resource Templates/Cards/card.gd" id="1_40ja8"]
+[ext_resource type="Texture2D" uid="uid://c7aq4edhdudb0" path="res://Assets/Cards/Attack/Bomb.png" id="1_sktvd"]
+
+[resource]
+script = ExtResource("1_40ja8")
+id = "bomb_1"
+type = 1
+target = 0
+cost = 1
+quantity = 1
+image = ExtResource("1_sktvd")
